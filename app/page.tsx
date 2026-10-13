@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Image from "next/image";
 import {
   Browsers,
   Cpu,
@@ -94,10 +95,10 @@ const features = [
 ];
 
 const team = [
-  { color: P[0], initials: "LH", name: "이현", role: "TEAM LEAD / AI", focus: "AI 설계 및 구현, 데이터셋 전처리 및 학습", social: "@liiillh_", contact: "atom11201202@gmail.com" },
-  { color: P[1], initials: "KD", name: "김동현", role: "HONEYPOT / INTEGRATION", focus: "허니팟 구축 및 로그 수집, 프로젝트 통합", social: "@_.29i8", contact: "kdh200022@gmail.com" },
-  { color: P[2], initials: "HY", name: "홍영재", role: "LLM / FRONTEND", focus: "LLM 설계, 프론트엔드 구축", social: "@h2_zerojae", contact: "evan3055@naver.com" },
-  { color: P[3], initials: "LJ", name: "이재민", role: "BACKEND / DATABASE", focus: "백엔드 및 데이터베이스(DB) 구축", social: "@dlwoals02", contact: "ljm5021@naver.com" },
+  { color: P[0], photo: "/team/lee-hyun.png", name: "이현", role: "TEAM LEAD / AI", focus: "AI 설계 및 구현, 데이터셋 전처리 및 학습", social: "@liiillh_", contact: "atom11201202@gmail.com" },
+  { color: P[1], photo: "/team/kim-donghyun.png", name: "김동현", role: "HONEYPOT / INTEGRATION", focus: "허니팟 구축 및 로그 수집, 프로젝트 통합", social: "@_.29i8", contact: "kdh200022@gmail.com" },
+  { color: P[2], photo: "/team/hong-youngjae.png", name: "홍영재", role: "LLM / FRONTEND", focus: "LLM 설계, 프론트엔드 구축", social: "@h2_zerojae", contact: "evan3055@naver.com" },
+  { color: P[3], photo: "/team/lee-jaemin.png", name: "이재민", role: "BACKEND / DATABASE", focus: "백엔드 및 데이터베이스(DB) 구축", social: "@dlwoals02", contact: "ljm5021@naver.com" },
 ];
 
 function SectionKicker({ no, label, suffix }: { no: string; label: string; suffix?: string }) {
@@ -603,12 +604,17 @@ export default function Home() {
                 data-reveal
                 className="card-lift grid content-start gap-3.5 rounded-[24px] border border-text/10 bg-panel p-6 sm:p-8"
               >
-                <span
-                  className="flex size-[54px] items-center justify-center rounded-full border bg-text/7 font-mono text-[15px] tracking-[0.06em]"
-                  style={{ borderColor: m.color, color: m.color }}
-                >
-                  {m.initials}
-                </span>
+                <Image
+                  src={m.photo}
+                  alt={`${m.name} 캐릭터`}
+                  width={480}
+                  height={405}
+                  className="size-[96px] rounded-[18px] border object-contain"
+                  style={{
+                    borderColor: `color-mix(in srgb, ${m.color} 45%, transparent)`,
+                    background: `color-mix(in srgb, ${m.color} 8%, transparent)`,
+                  }}
+                />
                 <div className="grid gap-1">
                   <span className="font-sans text-lg font-semibold">{m.name}</span>
                   <span className="font-mono text-[10.5px] tracking-[0.14em]" style={{ color: m.color }}>
