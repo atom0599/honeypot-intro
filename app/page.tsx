@@ -116,10 +116,10 @@ function SectionKicker({ no, label, suffix }: { no: string; label: string; suffi
   );
 }
 
-function Watermark({ no }: { no: string }) {
+function Watermark({ no, className = "" }: { no: string; className?: string }) {
   return (
     <span
-      className="hidden font-display font-bold leading-[0.8] tracking-[-0.05em] text-transparent sm:block"
+      className={`hidden font-display font-bold leading-[0.8] tracking-[-0.05em] text-transparent sm:block ${className}`}
       style={{
         fontSize: "clamp(56px, 10vw, 150px)",
         WebkitTextStroke: "1.4px rgba(244,244,241,0.18)",
@@ -276,6 +276,7 @@ export default function Home() {
                 침입 탐지는 보통 로그를 사람이 읽고 판단해야 해서 느리고, 공격 유형 분류 모델을 학습시킬
                 실제 공격 트래픽도 구하기 어렵습니다.
               </p>
+              <Watermark no="001" className="mt-14" />
             </div>
             <div className="grid gap-2.5">
               {problems.map((p) => (
@@ -381,6 +382,7 @@ export default function Home() {
                 센서가 원본 로그를 Logstash를 거쳐 Elasticsearch로 모읍니다.
               </span>
             </div>
+            <Watermark no="003" className="ml-auto" />
           </div>
           <div
             data-reveal
@@ -408,13 +410,16 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="004" label="PREPROCESSING" />
-          <h2
-            data-reveal
-            className="mt-6 font-display font-bold tracking-[-0.035em] sm:mt-11"
-            style={{ fontSize: "clamp(24px, 3.2vw, 44px)" }}
-          >
-            원본 로그를 학습 가능한 형태로
-          </h2>
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-11">
+            <h2
+              data-reveal
+              className="font-display font-bold tracking-[-0.035em]"
+              style={{ fontSize: "clamp(24px, 3.2vw, 44px)" }}
+            >
+              원본 로그를 학습 가능한 형태로
+            </h2>
+            <Watermark no="004" />
+          </div>
           <div className="mt-7 flex flex-wrap items-stretch sm:mt-13">
             {prep.map((p) => (
               <Fragment key={p.no}>
@@ -459,10 +464,13 @@ export default function Home() {
                 <br />한 흐름으로
               </h2>
             </div>
-            <p data-reveal className="max-w-[46ch] font-sans text-[14.5px] leading-[1.9] text-text/58">
-              LightGBM이 공격 유형과 위험도를 판정하고, Claude가 판정 결과와 원본 로그를 함께 읽어 분석
-              리포트와 대응 가이드를 스트리밍으로 생성합니다.
-            </p>
+            <div data-reveal className="grid gap-8">
+              <Watermark no="005" className="sm:justify-self-end" />
+              <p className="max-w-[46ch] font-sans text-[14.5px] leading-[1.9] text-text/58">
+                LightGBM이 공격 유형과 위험도를 판정하고, Claude가 판정 결과와 원본 로그를 함께 읽어 분석
+                리포트와 대응 가이드를 스트리밍으로 생성합니다.
+              </p>
+            </div>
           </div>
           <div
             data-reveal
@@ -491,6 +499,7 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="006" label="TECH STACK" />
+          <Watermark no="006" className="ml-auto mt-12 w-fit" />
           <div className="mt-6 grid gap-2.5 sm:mt-11">
             {stack.map((g) => {
               const Icon = g.icon;
@@ -604,6 +613,7 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="009" label="TEAM" suffix="4 MEMBERS" />
+          <Watermark no="009" className="ml-auto mt-12 w-fit" />
           <div
             className="mt-7 grid gap-2.5 sm:mt-13"
             style={{ gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}
