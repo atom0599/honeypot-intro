@@ -220,27 +220,6 @@ export default function Home() {
             </p>
           </div>
 
-          <div data-reveal className="relative z-[1] mt-8 flex flex-wrap gap-2.5 font-mono text-xs sm:mt-10">
-            <a
-              href="#pipeline"
-              className="rounded-full bg-accent px-6 py-4 font-bold text-bg transition-transform duration-300 hover:-translate-y-[3px]"
-            >
-              #pipeline
-            </a>
-            <a
-              href="#ai"
-              className="rounded-full border border-text/18 px-6 py-4 font-semibold text-text/88 transition-all duration-300 hover:-translate-y-[3px] hover:bg-text/8"
-            >
-              #aiengine
-            </a>
-            <a
-              href="#team"
-              className="rounded-full border border-text/18 px-6 py-4 font-semibold text-text/88 transition-all duration-300 hover:-translate-y-[3px] hover:bg-text/8"
-            >
-              #team
-            </a>
-          </div>
-
           <div
             data-reveal
             className="relative z-[1] mt-9 grid gap-2.5 sm:mt-16"
