@@ -22,7 +22,7 @@ const hue = (i: number) => P[i % P.length];
 
 const heroSpecs = [
   { label: "HONEYPOTS", value: "25종", note: "Docker 기반 서비스별 허니팟 상시 운용", color: P[0] },
-  { label: "ACCURACY", value: "0.98", note: "LightGBM 9개 라벨 분류 정확도", color: P[1] },
+  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 정확도", color: P[1] },
   { label: "F1 SCORE", value: "0.84", note: "클래스 불균형을 반영한 Macro F1", color: P[2] },
   { label: "REPORT", value: "Claude", note: "LLM 기반 한국어 분석 리포트", color: P[3] },
 ];
@@ -66,11 +66,11 @@ const dataStats = [
 const prep = [
   { no: "1", title: "피처 추출", desc: "출발지 IP·포트, 프로토콜, 바이트 수 등 22개 네트워크 흐름 피처 선택", out: "→ 22 features", arrow: true },
   { no: "2", title: "정제 및 변환", desc: "결측치 zero-filling, 수치형 정규화, 범주형 인코딩 적용", out: "→ clean dataset", arrow: true },
-  { no: "3", title: "라벨 분류", desc: "공격 특성에 따라 Normal·Recon·Brute Force 등 9개 클래스로 분류", out: "→ 9 classes", arrow: false },
+  { no: "3", title: "라벨 분류", desc: "공격 특성에 따라 Recon·Brute Force·Intrusion·Malware·Etc 5개 클래스로 분류", out: "→ 5 classes", arrow: false },
 ];
 
 const aiStats = [
-  { label: "ACCURACY", value: "0.98", note: "LightGBM 9개 라벨 분류 Accuracy", color: P[0] },
+  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 Accuracy", color: P[0] },
   { label: "F1 SCORE", value: "0.84", note: "Macro F1 Score", color: P[1] },
   { label: "REPORT ENGINE", value: "Claude", note: "위협 원인·위험도·대응 방안 한국어 리포트 생성", color: P[2] },
 ];
@@ -87,7 +87,7 @@ const stack = [
 const features = [
   { no: "001", tag: "STREAM", title: "LLM 실시간 스트리밍", desc: "Claude API의 위협 분석 결과를 SSE로 받아 리포트가 작성되는 과정을 그대로 보여준다.", highlight: true },
   { no: "002", tag: "VISUALIZE", title: "공격 흐름 시각화", desc: "수집된 공격 데이터를 그래프로 재구성해 공격 경로와 빈도를 한눈에 파악한다.", highlight: false },
-  { no: "003", tag: "CLASSIFY", title: "9개 클래스 자동 분류", desc: "LightGBM이 공격 유형을 실시간으로 예측하고 라벨을 자동으로 태깅한다.", highlight: false },
+  { no: "003", tag: "CLASSIFY", title: "5개 클래스 자동 분류", desc: "LightGBM이 공격 유형을 실시간으로 예측하고 라벨을 자동으로 태깅한다.", highlight: false },
   { no: "004", tag: "MITRE", title: "MITRE ATT&CK 매핑", desc: "탐지된 공격을 MITRE ATT&CK 상위 기법에 대응시켜 대응 방안을 제시한다.", highlight: false },
   { no: "005", tag: "PDF", title: "PDF 리포트 자동 생성", desc: "위협 분석 리포트를 정리된 PDF 문서로 즉시 출력한다.", highlight: false },
   { no: "006", tag: "AUTH", title: "Spring 기반 인증 연동", desc: "RESTful API와 JWT 인증으로 위협 콘솔 접근을 안전하게 제어한다.", highlight: false },
