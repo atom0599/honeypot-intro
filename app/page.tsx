@@ -534,8 +534,8 @@ export default function Home() {
         </section>
 
         {/* Implementation */}
-        <section id="results" style={{ padding: "clamp(72px, 12vh, 140px) clamp(16px, 3vw, 40px)" }}>
-          <SectionKicker no="007" label="RESULTS" suffix="6 FEATURES" />
+        <section id="implementation" style={{ padding: "clamp(72px, 12vh, 140px) clamp(16px, 3vw, 40px)" }}>
+          <SectionKicker no="007" label="IMPLEMENTATION" suffix="6 FEATURES" />
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
             <div data-reveal>
               <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">SCREENS</span>
