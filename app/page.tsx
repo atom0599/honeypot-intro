@@ -350,7 +350,7 @@ export default function Home() {
                     </span>
                   </div>
                   <div className="grid gap-1.5">
-                    <span className="font-mono text-[12px] font-semibold tracking-[0.08em] sm:text-[13px]" style={{ color: hue(i) }}>
+                    <span className="font-sans text-[13px] font-semibold tracking-[-0.01em] sm:text-[14px]" style={{ color: hue(i) }}>
                       {step.tag}
                     </span>
                     <span className="font-sans text-[13px] leading-[1.75] text-text/56">{step.desc}</span>
