@@ -178,7 +178,8 @@
   opacity: 1;
   transform: none;
   filter: none;
-  clip-path: inset(0 0 0 0);
+  /* negative inset so hover lifts (.card-lift) inside a revealed node aren't clipped */
+  clip-path: inset(-24px -24px -24px -24px);
 }
 [data-rule] {
   transform: scaleX(0);

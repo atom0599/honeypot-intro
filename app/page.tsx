@@ -430,7 +430,7 @@ export default function Home() {
                       {p.title}
                     </span>
                     <span className="font-sans text-[13px] leading-[1.8] text-text/55">{p.desc}</span>
-                    <span className="font-mono text-[11px] text-accent">{p.out}</span>
+                    <span className="font-sans text-[13px] font-semibold tracking-[-0.01em] text-accent sm:text-[14px]">{p.out}</span>
                   </div>
                   {p.arrow && (
                     <div className="flex items-center justify-center px-2 font-mono text-base text-text/38 sm:w-[54px]">
