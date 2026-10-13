@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import {
   Browsers,
+  Play,
   Cpu,
   Database,
   HardDrives,
@@ -23,8 +24,8 @@ const hue = (i: number) => P[i % P.length];
 
 const heroSpecs = [
   { label: "HONEYPOTS", value: "25종", note: "Docker 기반 서비스별 허니팟 상시 운용", color: P[0] },
-  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 정확도", color: P[1] },
-  { label: "F1 SCORE", value: "0.84", note: "클래스 불균형을 반영한 Macro F1", color: P[2] },
+  { label: "ACCURACY", value: "0.9995", note: "LightGBM 5개 라벨 분류 정확도 (v5)", color: P[1] },
+  { label: "F1 SCORE", value: "0.9981", note: "클래스 불균형을 반영한 Macro F1 (v5)", color: P[2] },
   { label: "REPORT", value: "Claude", note: "LLM 기반 한국어 분석 리포트", color: P[3] },
 ];
 
@@ -71,8 +72,8 @@ const prep = [
 ];
 
 const aiStats = [
-  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 Accuracy", color: P[0] },
-  { label: "F1 SCORE", value: "0.84", note: "Macro F1 Score", color: P[1] },
+  { label: "ACCURACY", value: "0.9995", note: "LightGBM 5개 라벨 분류 Accuracy (v5)", color: P[0] },
+  { label: "F1 SCORE", value: "0.9981", note: "Macro F1 Score (v5)", color: P[1] },
   { label: "REPORT ENGINE", value: "Claude", note: "위협 원인·위험도·대응 방안 한국어 리포트 생성", color: P[2] },
 ];
 
@@ -566,13 +567,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Demo video */}
+        <section
+          id="demo"
+          className="border-t border-text/8"
+          style={{ padding: "clamp(72px, 12vh, 140px) clamp(16px, 3vw, 40px)" }}
+        >
+          <SectionKicker no="008" label="DEMO" />
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
+            <div data-reveal>
+              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">VIDEO</span>
+              <h2 className="font-display font-bold tracking-[-0.04em]" style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}>
+                시연 영상
+              </h2>
+            </div>
+            <Watermark no="008" />
+          </div>
+          <div
+            data-reveal
+            className="mt-7 grid aspect-video w-full max-w-[1080px] place-items-center rounded-[24px] border border-dashed border-text/16 bg-panel sm:mt-13"
+          >
+            <div className="grid justify-items-center gap-4 text-center">
+              <span className="flex size-16 items-center justify-center rounded-full border border-accent text-accent">
+                <Play size={26} weight="fill" />
+              </span>
+              <span className="font-mono text-[11px] tracking-[0.18em] text-text/45">COMING SOON</span>
+              <span className="font-sans text-sm text-text/60">시연 영상이 이곳에 들어갈 예정입니다</span>
+            </div>
+          </div>
+        </section>
+
         {/* Team */}
         <section
           id="team"
           className="border-t border-text/8 bg-panel-2"
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
-          <SectionKicker no="008" label="TEAM" suffix="4 MEMBERS" />
+          <SectionKicker no="009" label="TEAM" suffix="4 MEMBERS" />
           <div
             className="mt-7 grid gap-2.5 sm:mt-13"
             style={{ gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}
@@ -633,7 +664,7 @@ export default function Home() {
         </section>
 
         <Marquee
-          text="#STAYSECURE · T-POT · COWRIE · SURICATA · 0.98 ACCURACY · SPRING BOOT + LIGHTGBM ·"
+          text="#STAYSECURE · T-POT · COWRIE · SURICATA · 0.9995 ACCURACY · SPRING BOOT + LIGHTGBM ·"
           direction="right"
           variant="subtle"
         />
