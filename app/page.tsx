@@ -510,12 +510,7 @@ export default function Home() {
                 className="font-display font-bold leading-[1.05] tracking-[-0.04em]"
                 style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}
               >
-                수집부터 리포트까지
-                <br />
-                <span className="text-transparent" style={{ WebkitTextStroke: "1.4px rgba(244,244,241,0.5)" }}>
-                  여섯 갈래
-                </span>
-                의 기술
+                기술 스택
               </h2>
             </div>
             <Watermark no="006" />
@@ -629,14 +624,12 @@ export default function Home() {
           <SectionKicker no="009" label="TEAM" suffix="4 MEMBERS" />
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
             <div data-reveal>
-              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">CREW</span>
+              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">THE PEOPLE</span>
               <h2
                 className="font-display font-bold leading-[1.05] tracking-[-0.04em]"
                 style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}
               >
-                네 명이 나눠 맡은
-                <br />
-                <span className="text-accent">하나의 시스템</span>
+                팀원 소개
               </h2>
             </div>
             <Watermark no="009" />
