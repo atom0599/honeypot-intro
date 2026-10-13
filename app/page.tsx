@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import Image from "next/image";
 import {
   Browsers,
-  Play,
   Cpu,
   Database,
   HardDrives,
@@ -18,6 +17,7 @@ import LiveFeed from "./components/LiveFeed";
 import TypewriterStream from "./components/TypewriterStream";
 import Marquee from "./components/Marquee";
 import ParallaxWord from "./components/ParallaxWord";
+import DemoVideo from "./components/DemoVideo";
 
 const P = ["var(--p0)", "var(--p1)", "var(--p2)", "var(--p3)"];
 const hue = (i: number) => P[i % P.length];
@@ -594,15 +594,9 @@ export default function Home() {
           </div>
           <div
             data-reveal
-            className="mt-7 grid aspect-video w-full max-w-[1080px] place-items-center rounded-[24px] border border-dashed border-text/16 bg-panel sm:mt-13"
+            className="mt-7 aspect-video w-full max-w-[1080px] overflow-hidden rounded-[24px] border border-text/16 bg-panel sm:mt-13"
           >
-            <div className="grid justify-items-center gap-4 text-center">
-              <span className="flex size-16 items-center justify-center rounded-full border border-accent text-accent">
-                <Play size={26} weight="fill" />
-              </span>
-              <span className="font-mono text-[11px] tracking-[0.18em] text-text/45">COMING SOON</span>
-              <span className="font-sans text-sm text-text/60">시연 영상이 이곳에 들어갈 예정입니다</span>
-            </div>
+            <DemoVideo videoId="AIya23UOB2s" title="시연 영상" />
           </div>
         </section>
 
