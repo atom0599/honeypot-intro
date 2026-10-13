@@ -24,8 +24,8 @@ const hue = (i: number) => P[i % P.length];
 
 const heroSpecs = [
   { label: "HONEYPOTS", value: "25종", note: "Docker 기반 서비스별 허니팟 상시 운용", color: P[0] },
-  { label: "ACCURACY", value: "0.9995", note: "LightGBM 5개 라벨 분류 정확도 (v5)", color: P[1] },
-  { label: "F1 SCORE", value: "0.9981", note: "클래스 불균형을 반영한 Macro F1 (v5)", color: P[2] },
+  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 정확도", color: P[1] },
+  { label: "F1 SCORE", value: "0.84", note: "클래스 불균형을 반영한 Macro F1", color: P[2] },
   { label: "REPORT", value: "Claude", note: "LLM 기반 한국어 분석 리포트", color: P[3] },
 ];
 
@@ -72,8 +72,8 @@ const prep = [
 ];
 
 const aiStats = [
-  { label: "ACCURACY", value: "0.9995", note: "LightGBM 5개 라벨 분류 Accuracy (v5)", color: P[0] },
-  { label: "F1 SCORE", value: "0.9981", note: "Macro F1 Score (v5)", color: P[1] },
+  { label: "ACCURACY", value: "0.98", note: "LightGBM 5개 라벨 분류 Accuracy", color: P[0] },
+  { label: "F1 SCORE", value: "0.84", note: "Macro F1 Score", color: P[1] },
   { label: "REPORT ENGINE", value: "Claude", note: "위협 원인·위험도·대응 방안 한국어 리포트 생성", color: P[2] },
 ];
 
@@ -664,7 +664,7 @@ export default function Home() {
         </section>
 
         <Marquee
-          text="#STAYSECURE · T-POT · COWRIE · SURICATA · 0.9995 ACCURACY · SPRING BOOT + LIGHTGBM ·"
+          text="#STAYSECURE · T-POT · COWRIE · SURICATA · 0.98 ACCURACY · SPRING BOOT + LIGHTGBM ·"
           direction="right"
           variant="subtle"
         />
