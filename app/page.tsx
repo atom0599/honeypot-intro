@@ -21,7 +21,7 @@ const P = ["var(--p0)", "var(--p1)", "var(--p2)", "var(--p3)"];
 const hue = (i: number) => P[i % P.length];
 
 const heroSpecs = [
-  { label: "HONEYPOTS", value: "20+", note: "Docker 기반 서비스별 허니팟 상시 운용", color: P[0] },
+  { label: "HONEYPOTS", value: "25종", note: "Docker 기반 서비스별 허니팟 상시 운용", color: P[0] },
   { label: "ACCURACY", value: "0.98", note: "LightGBM 9개 라벨 분류 정확도", color: P[1] },
   { label: "F1 SCORE", value: "0.84", note: "클래스 불균형을 반영한 Macro F1", color: P[2] },
   { label: "REPORT", value: "Claude", note: "LLM 기반 한국어 분석 리포트", color: P[3] },
@@ -46,19 +46,19 @@ const problems = [
 ];
 
 const pipeline = [
-  { no: "001", title: "인터넷 공격자", tag: "SOURCE", desc: "전 세계 스캐너·봇넷이 공인 IP로 노출된 서비스를 대상으로 공격을 시도한다." },
-  { no: "002", title: "T-Pot 허니팟", tag: "COWRIE · HONEYTRAP", desc: "SSH·웹·DB·산업제어(ICS) 등 20개 이상의 허니팟 컨테이너로 공격을 유도하고 로그를 수집한다." },
-  { no: "003", title: "Suricata", tag: "IDS", desc: "네트워크 이벤트를 eve.json 형식으로 기록해 다음 단계에서 다룰 수 있는 로그로 남긴다." },
-  { no: "004", title: "Python 전처리", tag: "PANDAS", desc: "eve.json에서 22개 네트워크 흐름 피처를 추출하고, 정규화·결측치 처리로 학습 가능한 형태로 가공한다." },
-  { no: "005", title: "LightGBM 다중 분류", tag: "LIGHTGBM", desc: "Normal·Recon·Brute Force 등 9개 클래스로 공격 유형을 예측한다." },
-  { no: "006", title: "Claude API", tag: "CLAUDE API", desc: "분류 결과와 흐름 정보를 받아 위협 원인·위험도·대응 방안을 한국어 리포트로 스트리밍 생성한다." },
-  { no: "007", title: "PostgreSQL", tag: "POSTGRESQL", desc: "사용자 정보와 분석 결과, 위험 리포트를 영속화한다." },
-  { no: "008", title: "Spring Boot API", tag: "SPRING BOOT", desc: "회원가입·로그인·JWT 인증과 분석 결과·리포트 조회 API를 제공한다." },
-  { no: "009", title: "Next.js 대시보드", tag: "APP ROUTER", desc: "실시간 공격 모니터링, 통계 시각화, 위협 리포트 확인과 PDF 다운로드를 하나의 화면에서 제공한다." },
+  { no: "001", title: "인터넷 공격자", tag: "실제 외부 공격", desc: "포트 스캔 · 계정 무차별 대입 · 악성코드 다운로드" },
+  { no: "002", title: "T-Pot 허니팟", tag: "25종 · 공격 유도", desc: "cowrie · dionaea 등 가짜 서비스 · Suricata 네트워크 탐지 · 접속·명령 로그 기록" },
+  { no: "003", title: "Logstash", tag: "정규화 · 적재", desc: "허니팟별 로그 형식 통일 · IP 위치(geoip) 부여 · Elasticsearch logstash-* 저장" },
+  { no: "004", title: "ml-classifier", tag: "규칙 + ML 교차검증", desc: "규칙이 1차 판정 · LightGBM 교차검증 · MITRE ATT&CK 점수화 · 30초 주기" },
+  { no: "005", title: "llm-analyzer", tag: "Claude API 한국어 해설", desc: "Anthropic Claude API · 공격 요약 · 대응 방안 · 공격 기법(TTP) 추론" },
+  { no: "006", title: "데이터 저장", tag: "Elasticsearch · PostgreSQL", desc: "ES: 로그 · 분류 · 해설 결과(ml-analysis-*, llm-analysis-*) · PostgreSQL: 사용자 · 프로젝트" },
+  { no: "007", title: "Spring Boot 백엔드", tag: "API · 인증", desc: "회원가입 · JWT 로그인 · 권한 관리 · 분석 결과 조회 API" },
+  { no: "008", title: "Next.js 대시보드", tag: "한국어 화면", desc: "공격 현황 · 통계 · 위험도별 이벤트 목록 · 한국어 해설 · 대응 방안" },
+  { no: "009", title: "어택맵 · 리포트", tag: "실시간 · PDF", desc: "세계 지도 위 실시간 공격 표시 · threat-console PDF 리포트" },
 ];
 
 const dataStats = [
-  { label: "CONTAINERS", value: "20+", note: "허니팟 컨테이너 상시 운용", color: P[1] },
+  { label: "HONEYPOTS", value: "25종", note: "허니팟 컨테이너 상시 운용", color: P[1] },
   { label: "SERVICES", value: "SSH·웹·DB·ICS", note: "다양한 서비스를 모사", color: P[2] },
   { label: "SOURCE", value: "실제 트래픽", note: "시나리오로 합성하지 않음", color: P[3] },
 ];
@@ -263,9 +263,9 @@ export default function Home() {
           </div>
         </section>
 
-        <Marquee text="20+ HONEYPOT CONTAINERS · T-POT · LIGHTGBM · CLAUDE REPORT · NEXT.JS DASHBOARD ·" />
+        <Marquee text="25 HONEYPOTS · T-POT · LIGHTGBM · CLAUDE REPORT · NEXT.JS DASHBOARD ·" />
 
-        {/* Live feed */}
+        {/* Sample log feed */}
         <section style={{ padding: "clamp(40px, 7vh, 80px) clamp(16px, 3vw, 40px) 0" }}>
           <div data-reveal>
             <LiveFeed />
@@ -337,6 +337,9 @@ export default function Home() {
                 <br />
                 리포트가 되기까지
               </h2>
+              <p className="mt-5 max-w-[44ch] font-sans text-[14.5px] leading-[1.9] text-text/58">
+                T-Pot 본체는 수정하지 않고, 분석 기능을 사이드카 컨테이너로 얹는다
+              </p>
             </div>
             <Watermark no="002" />
           </div>
@@ -393,7 +396,7 @@ export default function Home() {
                 허니팟 컨테이너 20대 이상 상시 운용
               </span>
               <span className="max-w-[44ch] font-sans text-[13.5px] leading-[1.8] text-text/56">
-                SSH·웹·DB·산업제어(ICS) 등 서비스별 허니팟을 20개 이상 배포하고, Suricata·p0f·Cowrie 등
+                SSH·웹·DB·산업제어(ICS) 등 서비스별 허니팟 25종을 배포하고, Suricata·p0f·Cowrie 등
                 센서가 원본 로그를 Logstash를 거쳐 Elasticsearch로 모읍니다.
               </span>
             </div>
@@ -547,7 +550,7 @@ export default function Home() {
             <div data-reveal>
               <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">SCREENS</span>
               <h2 className="font-display font-bold tracking-[-0.04em]" style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}>
-                구현 화면
+                구현 결과
               </h2>
             </div>
             <Watermark no="007" />

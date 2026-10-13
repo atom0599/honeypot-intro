@@ -62,7 +62,7 @@ export default function Nav() {
           </span>
         </span>
       </a>
-      <nav className="flex flex-wrap items-center justify-end gap-2 font-mono text-[11px] sm:gap-3">
+      <nav className="hidden flex-wrap items-center justify-end gap-2 font-mono text-[11px] sm:flex sm:gap-3">
         {navItems.map((item) => (
           <a key={item.href} href={item.href} className="pill-nav">
             {item.label}

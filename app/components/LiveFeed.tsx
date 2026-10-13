@@ -79,7 +79,6 @@ const COLUMNS = ["TIME", "SOURCE IP", "IP REPUTATION", "", "COUNTRY", "HONEYPOT"
 
 export default function LiveFeed() {
   const [feed, setFeed] = useState<Row[]>([]);
-  const [count, setCount] = useState(1284);
 
   useEffect(() => {
     // Rows use Math.random()/Date, so they can only be generated post-mount (computing them
@@ -88,7 +87,6 @@ export default function LiveFeed() {
     setFeed(Array.from({ length: 9 }, makeRow));
     const id = setInterval(() => {
       setFeed((prev) => [makeRow(), ...prev].slice(0, 9));
-      setCount((c) => c + 1);
     }, 1400);
     return () => clearInterval(id);
   }, []);
@@ -100,10 +98,13 @@ export default function LiveFeed() {
           className="block size-2 rounded-full bg-accent"
           style={{ animation: "k-pulse 1.3s ease-in-out infinite" }}
         />
-        <span>LIVE FEED · T-POT ATTACK MAP</span>
+        <span>SAMPLE LOG · T-POT ATTACK MAP</span>
         <span className="flex-1" />
-        <span>{count.toLocaleString()} EVENTS / SESSION</span>
+        <span className="rounded-full border border-text/16 px-2.5 py-1 tracking-[0.12em]">EXAMPLE</span>
       </div>
+      <p className="border-b border-text/8 px-5 py-3 font-sans text-xs leading-relaxed text-text/55">
+        허니팟에 수집되는 공격 로그는 이런 형태로 기록됩니다. 아래 행은 형식을 보여주기 위한 예시 데이터이며 실제 수집 데이터가 아닙니다.
+      </p>
       <div className="relative h-[280px] overflow-x-auto overflow-y-hidden">
         <table className="w-full min-w-[860px] border-collapse font-mono text-xs">
           <thead>
