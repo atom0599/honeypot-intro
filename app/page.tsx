@@ -410,14 +410,18 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="004" label="PREPROCESSING" />
-          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-11">
-            <h2
-              data-reveal
-              className="font-display font-bold tracking-[-0.035em]"
-              style={{ fontSize: "clamp(24px, 3.2vw, 44px)" }}
-            >
-              원본 로그를 학습 가능한 형태로
-            </h2>
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
+            <div data-reveal>
+              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">REFINE</span>
+              <h2
+                className="font-display font-bold leading-[1.05] tracking-[-0.04em]"
+                style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}
+              >
+                원본 로그를
+                <br />
+                <span className="text-accent">학습 가능한</span> 형태로
+              </h2>
+            </div>
             <Watermark no="004" />
           </div>
           <div className="mt-7 flex flex-wrap items-stretch sm:mt-13">
@@ -499,7 +503,23 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="006" label="TECH STACK" />
-          <Watermark no="006" className="ml-auto mt-12 w-fit" />
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
+            <div data-reveal>
+              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">BUILT WITH</span>
+              <h2
+                className="font-display font-bold leading-[1.05] tracking-[-0.04em]"
+                style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}
+              >
+                수집부터 리포트까지
+                <br />
+                <span className="text-transparent" style={{ WebkitTextStroke: "1.4px rgba(244,244,241,0.5)" }}>
+                  여섯 갈래
+                </span>
+                의 기술
+              </h2>
+            </div>
+            <Watermark no="006" />
+          </div>
           <div className="mt-6 grid gap-2.5 sm:mt-11">
             {stack.map((g) => {
               const Icon = g.icon;
@@ -534,8 +554,8 @@ export default function Home() {
         </section>
 
         {/* Implementation */}
-        <section id="implementation" style={{ padding: "clamp(72px, 12vh, 140px) clamp(16px, 3vw, 40px)" }}>
-          <SectionKicker no="007" label="IMPLEMENTATION" suffix="6 FEATURES" />
+        <section id="results" style={{ padding: "clamp(72px, 12vh, 140px) clamp(16px, 3vw, 40px)" }}>
+          <SectionKicker no="007" label="RESULTS" suffix="6 FEATURES" />
           <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
             <div data-reveal>
               <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">SCREENS</span>
@@ -607,7 +627,20 @@ export default function Home() {
           style={{ padding: "clamp(60px, 10vh, 120px) clamp(16px, 3vw, 40px)" }}
         >
           <SectionKicker no="009" label="TEAM" suffix="4 MEMBERS" />
-          <Watermark no="009" className="ml-auto mt-12 w-fit" />
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6 sm:mt-12">
+            <div data-reveal>
+              <span className="mb-3.5 block font-mono text-[11px] tracking-[0.2em] text-accent">CREW</span>
+              <h2
+                className="font-display font-bold leading-[1.05] tracking-[-0.04em]"
+                style={{ fontSize: "clamp(28px, 4.2vw, 58px)" }}
+              >
+                네 명이 나눠 맡은
+                <br />
+                <span className="text-accent">하나의 시스템</span>
+              </h2>
+            </div>
+            <Watermark no="009" />
+          </div>
           <div
             className="mt-7 grid gap-2.5 sm:mt-13"
             style={{ gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))" }}
