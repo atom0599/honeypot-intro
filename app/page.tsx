@@ -609,9 +609,9 @@ export default function Home() {
           </div>
           <div
             data-reveal
-            className="mt-7 aspect-video w-full max-w-[1080px] overflow-hidden rounded-[24px] border border-text/16 bg-panel sm:mt-13"
+            className="mt-7 aspect-video w-full overflow-hidden rounded-[24px] border border-text/16 bg-panel sm:mt-13"
           >
-            <DemoVideo videoId="AIya23UOB2s" title="시연 영상" />
+            <DemoVideo videoId="YZ0JWoClLTY" title="시연 영상" />
           </div>
         </section>
 
