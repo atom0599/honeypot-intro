@@ -67,14 +67,14 @@ export default function LiveDemoLink() {
         target="_blank"
         rel="noopener noreferrer"
         aria-disabled={closed}
-        className={`inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-mono text-[12.5px] font-medium tracking-[0.1em] transition-transform duration-300 ${
+        className={`inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-[15px] font-bold tracking-[-0.01em] transition-transform duration-300 ${
           closed
             ? "pointer-events-none border border-text/16 text-text/40"
             : "bg-accent text-bg hover:-translate-y-[3px]"
         }`}
       >
         {closed ? "운영 종료" : "시연 사이트 열기"}
-        {!closed && <ArrowUpRight size={16} weight="bold" />}
+        {!closed && <ArrowUpRight size={17} weight="bold" />}
       </a>
     </div>
   );
