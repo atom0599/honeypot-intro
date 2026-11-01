@@ -97,10 +97,10 @@ const features = [
 ];
 
 const team = [
-  { color: P[0], photo: "/team/lee-hyun.png", name: "이현", role: "TEAM LEAD / AI", focus: "AI 설계 및 구현, 데이터셋 전처리 및 학습", social: "@liiillh_", contact: "atom11201202@gmail.com" },
-  { color: P[1], photo: "/team/kim-donghyun.png", name: "김동현", role: "HONEYPOT / INTEGRATION", focus: "허니팟 구축 및 로그 수집, 프로젝트 통합", social: "@_.29i8", contact: "kdh200022@gmail.com" },
-  { color: P[2], photo: "/team/hong-youngjae.png", name: "홍영재", role: "LLM / FRONTEND", focus: "LLM 설계, 프론트엔드 구축", social: "@h2_zerojae", contact: "evan3055@naver.com" },
-  { color: P[3], photo: "/team/lee-jaemin.png", name: "이재민", role: "BACKEND / DATABASE", focus: "백엔드 및 데이터베이스(DB) 구축", social: "@dlwoals02", contact: "ljm5021@naver.com" },
+  { color: P[0], photo: `${process.env.NEXT_PUBLIC_BASE_PATH}/team/lee-hyun.png`, name: "이현", role: "TEAM LEAD / AI", focus: "AI 설계 및 구현, 데이터셋 전처리 및 학습", social: "@liiillh_", contact: "atom11201202@gmail.com" },
+  { color: P[1], photo: `${process.env.NEXT_PUBLIC_BASE_PATH}/team/kim-donghyun.png`, name: "김동현", role: "HONEYPOT / INTEGRATION", focus: "허니팟 구축 및 로그 수집, 프로젝트 통합", social: "@_.29i8", contact: "kdh200022@gmail.com" },
+  { color: P[2], photo: `${process.env.NEXT_PUBLIC_BASE_PATH}/team/hong-youngjae.png`, name: "홍영재", role: "LLM / FRONTEND", focus: "LLM 설계, 프론트엔드 구축", social: "@h2_zerojae", contact: "evan3055@naver.com" },
+  { color: P[3], photo: `${process.env.NEXT_PUBLIC_BASE_PATH}/team/lee-jaemin.png`, name: "이재민", role: "BACKEND / DATABASE", focus: "백엔드 및 데이터베이스(DB) 구축", social: "@dlwoals02", contact: "ljm5021@naver.com" },
 ];
 
 function SectionKicker({ no, label, suffix }: { no: string; label: string; suffix?: string }) {
