@@ -18,6 +18,7 @@ import TypewriterStream from "./components/TypewriterStream";
 import Marquee from "./components/Marquee";
 import ParallaxWord from "./components/ParallaxWord";
 import DemoVideo from "./components/DemoVideo";
+import LiveDemoLink, { LiveDemoPill } from "./components/LiveDemoLink";
 
 const P = ["var(--p0)", "var(--p1)", "var(--p2)", "var(--p3)"];
 const hue = (i: number) => P[i % P.length];
@@ -209,6 +210,7 @@ export default function Home() {
             <span className="font-mono text-[10.5px] tracking-[0.2em] text-text/38">
               HONEYPOT × MACHINE LEARNING × LLM
             </span>
+            <LiveDemoPill />
           </div>
 
           <div data-reveal className="relative z-[1] mt-6 sm:mt-11">
@@ -612,6 +614,9 @@ export default function Home() {
             className="mt-7 aspect-video w-full overflow-hidden rounded-[24px] border border-text/16 bg-panel sm:mt-13"
           >
             <DemoVideo videoId="YZ0JWoClLTY" title="시연 영상" />
+          </div>
+          <div data-reveal className="mt-4 sm:mt-6">
+            <LiveDemoLink />
           </div>
         </section>
 
